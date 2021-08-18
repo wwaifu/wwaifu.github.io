@@ -79,3 +79,9 @@ button {
 /*        z-index: 2;*/
 /*    }*/
 /*}*/
+
+@media (max-width: 360px) {
+    .image-wrapper {
+        height: 70vh;
+    }
+}
