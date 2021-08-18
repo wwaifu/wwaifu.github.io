@@ -20,7 +20,7 @@ body {
 .random-image {
     object-fit: cover;
     width: 340px;
-    height: 80vh;
+    height: 80%;
     border-radius: 6px;
     z-index: 2;
 }
