@@ -35,7 +35,6 @@ randomWaifuNsfw.addEventListener("click",generateWaifu)
 
 function generateWaifu() {
 	randomImage.src = loading
-	imageWrapper.classList.add('loading')
 	if (document.querySelector(".sfw").style.display == "flex") {
 		fetchWaifu()
 	} else if (document.querySelector(".nsfw").style.display == "flex") {
