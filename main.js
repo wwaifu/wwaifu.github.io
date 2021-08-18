@@ -4,15 +4,17 @@ const randomImage= document.querySelector(".random-image"),
 	  randomWaifuNsfw = document.querySelector(".random-waifu-nsfw"),
 	  formSelect = document.querySelector(".form-select"),
 	  formSelectNsfw = document.querySelector(".form-select-nsfw"),
-	  nsfwToggle = document.querySelector("#nsfwToggle")
-
+	  nsfwToggle = document.querySelector("#nsfwToggle"),
+	  imageWrapper = document.querySelector('.image-wrapper')
 document.querySelector(".sfw").style.display = "flex"
 document.querySelector(".nsfw").style.display = "none"
+
+formSelect.addEventListener('change', generateWaifu)
+formSelectNsfw.addEventListener('change', generateWaifu)
 
 let checkboxNsfw = document.querySelector('input[type=checkbox]');    
 
 nsfwToggle.addEventListener('change', ()=>{
-
 	if (checkboxNsfw.checked) {
 		document.querySelector(".nsfw").style.display = "flex"
 		document.querySelector(".sfw").style.display = "none"
@@ -25,24 +27,15 @@ nsfwToggle.addEventListener('change', ()=>{
 	
 })
 
-
 const loading = './load.svg'
 randomImage.src = loading
 
-randomWaifu.addEventListener("click", ()=>{
-
-	generateWaifu()
-
-});
-
-randomWaifuNsfw.addEventListener("click", ()=>{
-
-	generateWaifu()
-
-})
+randomWaifu.addEventListener("click",generateWaifu);
+randomWaifuNsfw.addEventListener("click",generateWaifu)
 
 function generateWaifu() {
 	randomImage.src = loading
+	imageWrapper.classList.add('loading')
 	if (document.querySelector(".sfw").style.display == "flex") {
 		fetchWaifu()
 	} else if (document.querySelector(".nsfw").style.display == "flex") {
